@@ -8,7 +8,7 @@ export const validateRequest =
       schema.parse({
         body: req.body,
       });
-
+      console.log("Validation successful for payload: ", req.body);
       next();
     } catch (error: any) {
       return res.status(400).json({
