@@ -5,6 +5,7 @@ import compression from "compression";
 import morgan from "morgan";
 import { globalErrorHandler } from "./common/middleware/error.middleware";
 import v1Routes from "./routes/v1";
+import path from "path";
 
 const app = express();
 
@@ -24,6 +25,15 @@ app.get("/api/v1/health", (_req, res) => {
     message: "Server is healthy",
   });
 });
+
+
+
+app.use(
+  "/uploads",
+  express.static(
+    path.join(process.cwd(), "uploads"),
+  ),
+);
 
 app.use("/api/v1", v1Routes);
 
