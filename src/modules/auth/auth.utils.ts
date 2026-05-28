@@ -5,7 +5,7 @@ export const generateAccessToken = (
   payload: object,
 ): string => {
   return jwt.sign(payload, env.jwtAccessSecret, {
-    expiresIn: "15m",
+    expiresIn: "300m",
   });
 };
 

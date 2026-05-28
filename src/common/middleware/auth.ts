@@ -6,11 +6,12 @@ import jwt from "jsonwebtoken";
 export const auth =
   (...roles: string[]) =>
   (req: Request, res: Response, next: NextFunction) => {
+    
     const token = req.headers.authorization;
     if (!token) {
       throw new AppError("Unauthorized", 401);
     }
-
+    
     const decoded = jwt.verify(token, env.jwtAccessSecret) as {
       userId: string;
       role: string;
