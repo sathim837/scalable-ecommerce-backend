@@ -4,6 +4,7 @@ import categoryRoutes from "../../modules/category/category.routes";
 import productRoutes from "../../modules/products/product.routes";
 import cartRoutes from "../../modules/cart/cart.routes";
 import wishlistRoutes from "../../modules/wishlist/wishlist.routes";
+import orderRoutes from "../../modules/orders/order.routes";
 
 const router = express.Router();
 
@@ -28,6 +29,10 @@ const moduleRoutes = [
     path: "/wishlist",
     route: wishlistRoutes,
   },
+  {
+    path: "/orders",
+    route: orderRoutes,
+  }
 ];
 
 moduleRoutes.forEach((route) =>
